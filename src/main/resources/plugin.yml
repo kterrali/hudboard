@@ -1,0 +1,56 @@
+name: HudBoard
+version: '${project.version}'
+main: com.hudboard.HudBoardPlugin
+api-version: '1.21'
+authors: [Kterrali]
+description: HudBoard — per-panel info displays for Paper 1.21.11+. Drop PNG/GIF/JPG images, map data points to any PlaceholderAPI placeholder, edit in-game. 5 positional animations, custom placeholder groups, auto-fit text, 20Hz GIF rendering.
+website: https://github.com/Kterrali/hudboard
+depend: [PlaceholderAPI]
+softdepend: [Vault, WorldGuard]
+load: STARTUP
+
+commands:
+  hudboard:
+    description: Place and manage HUD info panels.
+    aliases: [hboard, hb, hudb]
+    usage: |
+      /<command> help                       full command list
+      /<command> list                       list available panel profiles
+      /<command> panels                     list all placed panels
+      /<command> info                       plugin info
+      /<command> stats                      show global stats
+      /<command> preview <profile>          render data points in chat
+      /<command> panel create <name> png|gif|jpg <w>x<h>   create a blank profile
+      /<command> panel place <name>                          place at your look target
+      /<command> panel edit <name>                           open the editor GUI
+      /<command> panel remove <name|all>                     remove a placed panel
+      /<command> panel info <name>                           show placed-panel state
+      /<command> panel undo <name>                           rollback last edit
+      /<command> panel redo <name>                           replay an undone edit
+      /<command> panel repair <name|all>                     re-spawn missing frames
+      /<command> move <name>               /<command> tp <name>             /<command> rename <o> <new>
+      /<command> edit <profile> <key> <v> /<command> remove <name|all>      /<command> nuke [radius]
+      /<command> group ...                  /<command> manual ...             /<command> template ...
+    permission: hudboard.use
+
+permissions:
+  hudboard.use:
+    description: Use HudBoard commands (open menu, view panels).
+    default: true
+  hudboard.admin:
+    description: Full admin access (place, remove, edit, reload).
+    default: op
+    children:
+      hudboard.use: true
+      hudboard.place: true
+      hudboard.edit: true
+      hudboard.reload: true
+  hudboard.place:
+    description: Place or remove panels in the world.
+    default: op
+  hudboard.edit:
+    description: Edit panel data points in-game.
+    default: op
+  hudboard.reload:
+    description: Hot-reload panels and config.
+    default: op

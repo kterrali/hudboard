@@ -1,0 +1,49 @@
+# HudBoard v2.6.5 - messages FR
+# Convention: une ligne = un message. MiniMessage tags autorisés.
+
+prefix: "<gray>[<gold>HudBoard</gold>]</gray> "
+
+# Erreurs
+no-player:    "<red>Commande reservée aux joueurs.</red>"
+no-perm:      "<red>Permission insuffisante.</red>"
+
+# Place / remove
+place.done:           "<green>Panneau <gold>%name%</gold> placé (<aqua>%tiles%</aqua> tuiles).</green>"
+place.removed:        "<green>Panneau <gold>%name%</gold> retiré (<aqua>%count%</aqua> cadres).</green>"
+place.face-rejected:  "<red>Regardez un mur (pas le sol ni le plafond) pour déplacer un panneau.</red>"
+
+# List / panels
+list.header:    "<gold>Profils disponibles (<gray>%count%</gray>) :</gold>"
+list.empty:     "<red>Aucun profil. Posez un PNG + yml dans <gold>plugins/HudBoard/panels/</gold></red>"
+panels.header:  "<gold>Panneaux placés (<gray>%count%</gray>) :</gold>"
+panels.empty:   "<gray>Aucun panneau placé. <gold>/hudboard panel place <nom></gold></gray>"
+
+# Panels (sub-commandes)
+panel.not-found:   "<red>Panneau <gold>%name%</gold> introuvable.</red>"
+panel.list-empty:  "<yellow>Aucun panneau placé.</yellow>"
+panel.orphan:      "<yellow>Ce panneau a été supprimé (cadre orphelin d'une session précédente). Clic ignoré.</yellow>"
+
+# Reload
+reload.done:    "<green>HudBoard rechargé en <gold>%ms%ms</gold>. <gray>Profils : <gold>%panels%</gold>, placés : <gold>%placed%</gold>.</gray>"
+
+# Stats / info
+info.version:   "<gold>HudBoard <bold>%version%</bold></gold>"
+info.java:      "<gray>Panneaux HUD admin pour Paper.</gray>"
+stats.header:   "<gold>Statistiques HudBoard</gold>"
+stats.line:     " <gray>·</gray> <aqua>%key%</aqua> <gray>=</gray> <white>%value%</white>"
+
+# Edit (legacy CLI editor)
+edit.done:      "<green>Panneau <gold>%name%</gold> : <gold>%key%</gold> = <gold>%value%</gold></green>"
+
+# Move flow
+move.cancelled:  "<yellow>Déplacement annulé.</yellow>"
+move.done:       "<green>Panneau <gold>%name%</gold> déplacé vers <gold>%pos%</gold>.</green>"
+move.failed:     "<red>Déplacement impossible (réessayez, ou vérifiez la console).</red>"
+
+# GUI feedback
+gui.saved:           "<green><gold>%name%</gold> enregistré.</green>"
+gui.refreshed:       "<green>Panneau rafraîchi.</green>"
+gui.refresh-rate:    "<aqua>Fréquence de rafraîchissement : <gold>%sec%s</gold> pour ce panneau.</aqua>"
+gui.removed:         "<green>Panneau <gold>%name%</gold> retiré.</green>"
+gui.dp-deleted:      "<yellow>Point de données <gold>%key%</gold> supprimé.</yellow>"
+gui.no-data-points:  "<yellow>Ce panneau n'a aucun point de données.</yellow>"

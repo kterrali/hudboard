@@ -1,0 +1,20 @@
+# HudBoard — Manual placeholder keys (v2.0.1)
+#
+# Format: <source-id>: [<key1>, <key2>, ...]
+#
+# A "manual key" is a placeholder name the admin typed via the
+# placeholder browser's "Type Manually" dialog (slot 31). It's typically
+# used for legacy PAPI hooks or custom plugins that don't expose an
+# identifier through the modern PlaceholderAPI reflection.
+#
+# This file is written every time you add a manual key, so on the next
+# server restart they're already loaded — no need to retype.
+#
+# Format examples:
+# jobs:
+#   - jobs_top_lvl
+#   - jobs_top_jobs
+# vip:
+#   - vip_rank
+#
+# Use /hudboard manual list|add|remove|clear to manage them from in-game.

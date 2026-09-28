@@ -1,0 +1,66 @@
+name: build
+
+on:
+  push:
+    branches: [main]
+    tags: ['v*']
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up JDK 21
+        uses: actions/setup-java@v4
+        with:
+          java-version: '21'
+          distribution: 'temurin'
+
+      - name: Build with Maven
+        run: mvn -B package -DskipTests
+
+      - name: Run tests
+        run: mvn -B test
+
+      - name: Upload JAR artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: HudBoard-JAR
+          path: target/HudBoard-*.jar
+          if-no-files-found: error
+
+      - name: Attach JAR to release
+        if: startsWith(github.ref, 'refs/tags/v')
+        uses: softprops/action-gh-release@v2
+        with:
+          files: target/HudBoard-*.jar
+          generate_release_notes: true
+
+  hangar:
+    needs: build
+    if: startsWith(github.ref, 'refs/tags/v')
+    runs-on: ubuntu-latest
+    # Hangar auto-detects workflow files at .github/workflows/*.yml
+    # named `plugin-verify.yml` or any workflow containing "hangar".
+    # Reference: https://docs.papermc.io/hangar/publishing
+    steps:
+      - name: Download artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: HudBoard-JAR
+          path: dist
+
+      - name: Publish to Hangar
+        # Hangar's publish action picks up the workflow automatically
+        # when the repo is linked at hangar.papermc.io
+        run: |
+          echo "Hangar auto-publishes from the configured repo"
+          echo "JAR is in dist/ and ready to be picked up"

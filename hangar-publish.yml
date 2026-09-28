@@ -1,0 +1,21 @@
+# Hangar publication metadata
+# Reference: https://docs.papermc.io/hangar/publishing
+
+name: HudBoard
+description: >-
+  Per-panel info displays for Paper 1.21.11+. Drop PNG/GIF/JPG images,
+  map data points to any PlaceholderAPI placeholder, edit in-game.
+  5 positional animations, custom placeholder groups, auto-fit text,
+  20Hz GIF rendering.
+license: Apache-2.0
+keywords:
+  - panel
+  - map
+  - placeholder
+  - papi
+  - hud
+  - display
+  - info
+  - scoreboard
+sourceLink: https://github.com/Kterrali/hudboard
+discordInviteUrl: ''

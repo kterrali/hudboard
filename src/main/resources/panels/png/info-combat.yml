@@ -1,0 +1,95 @@
+# HudBoard - info-combat (2x2 = 256x256)
+# PvP stats: K/D ratio, total kills, deaths, your best streak.
+# Uses %player_*% built-ins. Replace with PAPI expansions if you want
+# more (e.g. %jobsr_user_jobs% from JobsReborn).
+#
+# Convention: `text` = raw data, `base-color` = MiniMessage tag applied to
+# the whole text. For data points that mix colors, keep inline tags in
+# `text` and leave `base-color` blank.
+
+name: "<gradient:#ff4444:#aa0000>Combat</gradient>"
+description: "Your PvP stats: K/D, kills, deaths, current HP."
+permission: hudboard.admin
+tiles-w: 2
+tiles-h: 2
+
+data-points:
+  # Top-left: K/D ratio label
+  kdr_label:
+    tile-x: 0
+    tile-y: 0
+    x: 16
+    y: 24
+    text: "K/D RATIO"
+    size: 9
+    color: 0x606060
+    base-color: "<dark_gray>"
+  # Top-left: big K/D value with gradient
+  kdr_value:
+    tile-x: 0
+    tile-y: 0
+    x: 16
+    y: 56
+    text: "<b>%player_kdr%</b>"
+    size: 36
+    color: 0xFFFFFF
+    base-color: "<gradient:#ff5555:#ff8800>"
+
+  # Top-right: kills (red) + deaths (gray) — separate DPs, each with their own color
+  kills:
+    tile-x: 1
+    tile-y: 0
+    x: 14
+    y: 28
+    text: "%player_kills% kills"
+    size: 18
+    color: 0xFF5555
+    base-color: "<red>"
+  deaths:
+    tile-x: 1
+    tile-y: 0
+    x: 14
+    y: 56
+    text: "%player_deaths% deaths"
+    size: 18
+    color: 0x808080
+    base-color: "<gray>"
+
+  # Bottom-left: health with gradient
+  health_label:
+    tile-x: 0
+    tile-y: 1
+    x: 16
+    y: 30
+    text: "HEALTH"
+    size: 9
+    color: 0x606060
+    base-color: "<dark_gray>"
+  health:
+    tile-x: 0
+    tile-y: 1
+    x: 16
+    y: 56
+    text: "%player_health% / %player_max_health%"
+    size: 18
+    color: 0xFFFFFF
+    base-color: "<gradient:#4ade80:#22d3ee>"
+
+  # Bottom-right: food + level
+  food:
+    tile-x: 1
+    tile-y: 1
+    x: 14
+    y: 28
+    text: "%player_food%/20 food"
+    size: 14
+    color: 0xFFC85A
+  level:
+    tile-x: 1
+    tile-y: 1
+    x: 14
+    y: 56
+    text: "lv %player_level%"
+    size: 14
+    color: 0x55FF55
+    base-color: "<green>"

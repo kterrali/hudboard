@@ -1,0 +1,83 @@
+# HudBoard - info-economy (2x2 = 256x256)
+# Economy status: your balance, currency symbol, the top earner (via PAPI).
+# Replace %vault_top_player% with the PAPI expansion of your choice
+# (e.g. %jobsr_top_user_name% from JobsReborn, or %playerpoints_top%).
+#
+# Convention: `text` = raw data, `base-color` = MiniMessage tag applied to
+# the whole text.
+
+name: "<gradient:#ffd700:#ff8800>Economy</gradient>"
+description: "Your wallet + the top earner (via PAPI)."
+permission: hudboard.admin
+tiles-w: 2
+tiles-h: 2
+
+data-points:
+  # Top-left: balance label
+  balance_label:
+    tile-x: 0
+    tile-y: 0
+    x: 16
+    y: 24
+    text: "YOUR WALLET"
+    size: 9
+    color: 0x606060
+    base-color: "<dark_gray>"
+  # Big balance with gold→orange gradient
+  balance:
+    tile-x: 0
+    tile-y: 0
+    x: 16
+    y: 58
+    text: "<b>%vault_balance%</b>"
+    size: 32
+    color: 0xFFFFFF
+    base-color: "<gradient:#FFD700:#FF8800>"
+  currency:
+    tile-x: 0
+    tile-y: 0
+    x: 16
+    y: 90
+    text: "Couronnes"
+    size: 10
+    color: 0x808080
+    base-color: "<dark_gray>"
+
+  # Top-right: the top earner (PAPI placeholder — replace if you want a different one)
+  top_label:
+    tile-x: 1
+    tile-y: 0
+    x: 14
+    y: 24
+    text: "TOP EARNER"
+    size: 9
+    color: 0x606060
+    base-color: "<dark_gray>"
+  top_name:
+    tile-x: 1
+    tile-y: 0
+    x: 14
+    y: 50
+    text: "%vault_top_player%"
+    size: 16
+    color: 0xFFD700
+    base-color: "<gradient:#FFD700:#FF8800>"
+  top_balance:
+    tile-x: 1
+    tile-y: 0
+    x: 14
+    y: 76
+    text: "%vault_top_balance% CR"
+    size: 12
+    color: 0xFFC85A
+
+  # Bottom: hint
+  hint:
+    tile-x: 0
+    tile-y: 1
+    x: 16
+    y: 32
+    text: "edit panel.yml to swap any %placeholder%"
+    size: 9
+    color: 0x606060
+    base-color: "<dark_gray>"

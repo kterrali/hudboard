@@ -1,0 +1,124 @@
+# HudBoard - info-player (2x2 = 256x256)
+# Personal info for the viewer. Player name (gradient) on top, balance + stats below.
+# Uses PAPI placeholders so it works with whatever economy / jobs plugin you have.
+# Replace %vault_balance% with your own expansion (Jobs: %jobsr_user_jobs%, etc.)
+#
+# Convention: `text` = raw data, `base-color` = the MiniMessage tag applied to
+# the whole text. For data points that mix several colors inline (e.g. the
+# "online" hint with a dark label + green value), keep the inline tags in
+# `text` and leave `base-color` blank.
+
+name: "<gradient:#f0abfc:#a78bfa>Player</gradient>"
+description: "Personal info: name, balance, ping, playtime. Uses PAPI for economy."
+permission: hudboard.use
+tiles-w: 2
+tiles-h: 2
+
+data-points:
+  # Top-left: greeting
+  greeting:
+    tile-x: 0
+    tile-y: 0
+    x: 18
+    y: 30
+    text: "Hello,"
+    size: 11
+    color: 0x808080
+    base-color: "<dark_gray>"
+  # Player name, big with gradient. The <b> is inline because it's a
+  # decoration, not the base color.
+  player_name:
+    tile-x: 0
+    tile-y: 0
+    x: 18
+    y: 55
+    text: "<b>%player_name%</b>"
+    size: 22
+    color: 0xFFFFFF
+    base-color: "<gradient:#f0abfc:#818cf8>"
+  # Decorative divider
+  divider_top:
+    tile-x: 0
+    tile-y: 0
+    x: 18
+    y: 95
+    text: "────────────────────────────────"
+    size: 8
+    color: 0x404040
+    base-color: "<dark_gray>"
+  # Wallet
+  balance_label:
+    tile-x: 0
+    tile-y: 1
+    x: 18
+    y: 28
+    text: "WALLET"
+    size: 9
+    color: 0x808080
+    base-color: "<gray>"
+  balance_value:
+    tile-x: 0
+    tile-y: 1
+    x: 18
+    y: 50
+    text: "%vault_balance% Couronnes"
+    size: 18
+    color: 0xFFD700
+    base-color: "<gradient:#fbbf24:#f59e0b>"
+  # Ping
+  ping_label:
+    tile-x: 1
+    tile-y: 1
+    x: 14
+    y: 28
+    text: "PING"
+    size: 9
+    color: 0x808080
+    base-color: "<gray>"
+  ping_value:
+    tile-x: 1
+    tile-y: 1
+    x: 14
+    y: 50
+    text: "%player_ping%ms"
+    size: 18
+    color: 0xFFFFFF
+    base-color: "<gradient:#4ade80:#22d3ee>"
+  # Playtime
+  playtime_label:
+    tile-x: 0
+    tile-y: 1
+    x: 18
+    y: 88
+    text: "PLAYTIME"
+    size: 9
+    color: 0x808080
+    base-color: "<gray>"
+  playtime_value:
+    tile-x: 0
+    tile-y: 1
+    x: 18
+    y: 108
+    text: "%player_playtime%"
+    size: 14
+    color: 0xFFFFFF
+    base-color: "<gradient:#a78bfa:#818cf8>"
+  # Location
+  location_label:
+    tile-x: 1
+    tile-y: 1
+    x: 14
+    y: 88
+    text: "LOCATION"
+    size: 9
+    color: 0x808080
+    base-color: "<gray>"
+  location_value:
+    tile-x: 1
+    tile-y: 1
+    x: 14
+    y: 108
+    text: "%player_world%"
+    size: 14
+    color: 0xFFFFFF
+    base-color: "<gradient:#a78bfa:#818cf8>"

@@ -1,0 +1,113 @@
+# HudBoard - info-hub (2x2 = 256x256)
+# Slim server status panel: name + online, performance, world, playtime.
+# 8 DPs, 4 quadrants, lots of breathing room.
+#
+# Convention: `text` = raw data, `base-color` = the MiniMessage tag applied
+# to the whole text. For mixed-color texts (like "online 1/2" with gray label
+# + green values), keep the inline tags in `text` and leave `base-color` blank.
+
+name: "<gradient:#c8aa6e:#785a28>Server Hub</gradient>"
+description: "Slim server status: name, online, performance, world, playtime."
+permission: hudboard.use
+tiles-w: 2
+tiles-h: 2
+
+data-points:
+  # ───── Top-left: server identity ─────
+  server_name:
+    tile-x: 0
+    tile-y: 0
+    x: 16
+    y: 32
+    text: "%server_name%"
+    size: 22
+    color: 0xFFFFFF
+    base-color: "<gradient:#FFD700:#FF8800>"
+  # Mixed colors: "online" label is dark, the values are green → keep inline
+  online:
+    tile-x: 0
+    tile-y: 0
+    x: 16
+    y: 60
+    text: "<dark_gray>online </dark_gray><green>%server_online%</green><dark_gray>/</dark_gray><green>%server_max%</green>"
+    size: 14
+    color: 0x55FF55
+
+  # ───── Top-right: performance triple ─────
+  perf_label:
+    tile-x: 1
+    tile-y: 0
+    x: 14
+    y: 24
+    text: "PERFORMANCE"
+    size: 8
+    color: 0x606060
+    base-color: "<dark_gray>"
+  tps:
+    tile-x: 1
+    tile-y: 0
+    x: 14
+    y: 44
+    text: "%server_tps% TPS"
+    size: 13
+    color: 0x55FF55
+    base-color: "<green>"
+    animation: pulse
+    anim-color: 0xFF8800
+    anim-ms: 1500
+  mspt:
+    tile-x: 1
+    tile-y: 0
+    x: 14
+    y: 62
+    text: "%server_mspt% MSPT"
+    size: 13
+    color: 0xFFD700
+    base-color: "<yellow>"
+  ram:
+    tile-x: 1
+    tile-y: 0
+    x: 14
+    y: 80
+    text: "%server_mem_used%M/%server_mem_max%M"
+    size: 11
+    color: 0x88CCFF
+    base-color: "<aqua>"
+
+  # ───── Bottom-left: world + uptime ─────
+  world:
+    tile-x: 0
+    tile-y: 1
+    x: 16
+    y: 30
+    text: "%server_time_of_day% · %server_weather%"
+    size: 13
+    color: 0xFFFFFF
+  uptime:
+    tile-x: 0
+    tile-y: 1
+    x: 16
+    y: 56
+    text: "uptime %server_uptime%"
+    size: 12
+    color: 0xFFC85A
+
+  # ───── Bottom-right: your stats ─────
+  # Mixed: "session" is dark, the value is white → keep inline
+  playtime:
+    tile-x: 1
+    tile-y: 1
+    x: 14
+    y: 30
+    text: "%player_playtime%"
+    size: 16
+    color: 0xFFD700
+    base-color: "<gold>"
+  session:
+    tile-x: 1
+    tile-y: 1
+    x: 14
+    y: 52
+    text: "<dark_gray>session </dark_gray><white>%player_session%</white>"
+    size: 11
+    color: 0xCCCCCC

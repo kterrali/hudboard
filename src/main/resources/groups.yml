@@ -1,0 +1,17 @@
+# HudBoard — Custom placeholder groups (Phase 2.1+)
+#
+# Format: <group-name>: [<key1>, <key2>, ...]
+# - Keys are the placeholder identifiers WITHOUT the surrounding %...%.
+# - They're stored lowercase but you can type them in any case.
+# - Empty groups are auto-deleted.
+# - Names starting with "group:" or matching a built-in / PAPI id are rejected.
+#
+# You can also manage this file from in-game with /hudboard group list|create|add|remove|delete|export|import.
+#
+# Example:
+# vip:
+#   - vip_rank
+#   - vip_expires_in_days
+# jobs:
+#   - jobs_top_lvl
+#   - jobs_top_jobs

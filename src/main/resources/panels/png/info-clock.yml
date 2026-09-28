@@ -1,0 +1,55 @@
+# HudBoard - info-clock (2x1 = 256x128)
+# Elegant clock + date panel. Big time, subtle date below.
+# Uses %server_time% and %server_date% (throttled so they don't pulse).
+#
+# Convention: `text` = raw data, `base-color` = the MiniMessage tag (color or
+# gradient) applied to the whole text. The editor GUI's "color" button edits
+# `base-color` — never put gradient/color tags in `text` directly.
+
+name: "<gradient:#67e8f9:#a78bfa>Clock</gradient>"
+description: "Time + date. Big readable clock, small date underneath."
+permission: hudboard.use
+tiles-w: 2
+tiles-h: 1
+
+data-points:
+  # Timezone label above the time
+  time_label:
+    tile-x: 0
+    tile-y: 0
+    x: 60
+    y: 22
+    text: "SERVER TIME"
+    size: 9
+    color: 0x606060
+    base-color: "<dark_gray>"
+  # Big time, animated gradient
+  time_value:
+    tile-x: 0
+    tile-y: 0
+    x: 18
+    y: 55
+    text: "%server_time%"
+    size: 36
+    color: 0xFFFFFF
+    base-color: "<gradient:#22d3ee:#a78bfa>"
+  # Date on the right tile
+  date_value:
+    tile-x: 1
+    tile-y: 0
+    x: 14
+    y: 50
+    text: "%server_date%"
+    size: 16
+    color: 0xFFFFFF
+    base-color: "<gradient:#fef3c7:#fde68a>"
+  # Day of week + weather below the date
+  day_weather:
+    tile-x: 1
+    tile-y: 0
+    x: 14
+    y: 80
+    text: "%server_time_of_day% · %server_weather%"
+    size: 10
+    color: 0x808080
+    base-color: "<gray>"

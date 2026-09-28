@@ -1,0 +1,43 @@
+# ============================================================
+# HudBoard v1.0.0 - admin-placed HUD info panels
+# ============================================================
+
+# (legacy, ignored — modes were removed in v3.0)
+# default-mode: server
+
+# Default data refresh interval (seconds). Lower = more up-to-date but
+# more CPU when many players are looking at the panel.
+refresh-interval: 1
+
+# Maximum size of any panel in tiles (each tile = 128x128). Range 1..10.
+# A 5x5 panel = 640x640 (25 maps). 10x10 = 1280x1280 (100 maps).
+# Bigger panels cost more RAM + more server tick work.
+max-tiles-per-side: 10
+
+# Cooldown between /hudboard place commands per admin (milliseconds).
+place-cooldown-ms: 3000
+
+# WorldGuard integration: list of regions where panel placement is FORBIDDEN.
+disabled-regions: []
+
+# Worlds where panels cannot be placed.
+disabled-worlds: []
+
+# Distance (blocks) at which a panel is considered "visible" and ticks.
+# Outside this range, the panel is paused entirely — saves significant CPU
+# when many panels are placed and only a few are actually being looked at.
+panel:
+  view-distance: 48
+  follow-viewer: false
+
+# Place panel on player join (mostly for testing; admin-placed panels are
+# typically placed once and stay forever).
+auto-place-on-join: false
+auto-place-profile: info-hub
+
+# Sounds
+sound-on-place:   BLOCK_BEACON_ACTIVATE
+sound-on-remove:  BLOCK_BEACON_DEACTIVATE
+# (legacy, ignored — modes were removed in v3.0)
+# sound-on-cycle: BLOCK_NOTE_BLOCK_PLING
+# click-to-cycle: true

@@ -1,0 +1,35 @@
+# Build
+target/
+build/
+out/
+*.class
+*.jar
+!src/main/resources/  # keep resources in source tree
+
+# IntelliJ
+.idea/
+*.iml
+*.iws
+*.ipr
+
+# Eclipse
+.classpath
+.project
+.settings/
+bin/
+
+# VS Code
+.vscode/
+
+# Maven
+.mvn/wrapper/maven-wrapper.jar
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Test
+test-tmp/

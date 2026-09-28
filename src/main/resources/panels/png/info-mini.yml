@@ -1,0 +1,48 @@
+# HudBoard - info-mini (1x1 = 128x128)
+# Minimalist single-tile panel. Just the server TPS, big and readable.
+# Use case: place 4 of these in a row, one per "stat you'd like to see at a glance".
+#
+# Convention: `text` holds the raw data (placeholder or string). `base-color`
+# holds a MiniMessage color tag (named, hex, or gradient) that is prepended
+# to the whole text. The editor GUI's "color" button edits `base-color`.
+
+name: "<gradient:#FFD700:#FF8800>Mini</gradient>"
+description: "Single-tile minimalist TPS display. Less is more."
+permission: hudboard.use
+tiles-w: 1
+tiles-h: 1
+
+data-points:
+  # Small uppercase label
+  tps_label:
+    tile-x: 0
+    tile-y: 0
+    x: 50
+    y: 30
+    text: "TPS"
+    size: 9
+    color: 0x808080
+    base-color: "<dark_gray>"
+  # The actual TPS value, big, with a green→cyan gradient
+  tps_value:
+    tile-x: 0
+    tile-y: 0
+    x: 32
+    y: 65
+    text: "%server_tps%"
+    size: 28
+    color: 0xFFFFFF
+    base-color: "<gradient:#4ade80:#22d3ee>"
+    animation: breathe
+    anim-color: 0xFFD700
+    anim-ms: 2000
+  # Online counter at the bottom
+  online:
+    tile-x: 0
+    tile-y: 0
+    x: 36
+    y: 110
+    text: "%server_online%/%server_max%"
+    size: 8
+    color: 0x808080
+    base-color: "<gray>"

@@ -1,0 +1,41 @@
+# HudBoard - info-aurora (1x1 = 128x128)
+# Animated background (aurora.gif) with a single live counter.
+# Use this as a decorative "server is alive" panel, e.g. near spawn.
+#
+# Convention: `text` = raw data, `base-color` = MiniMessage tag applied to
+# the whole text.
+
+name: "<gradient:#a78bfa:#22d3ee>Aurora</gradient>"
+description: "Single-tile panel with an animated aurora background. Live server status."
+permission: hudboard.use
+tiles-w: 1
+tiles-h: 1
+
+data-points:
+  label:
+    tile-x: 0
+    tile-y: 0
+    x: 36
+    y: 22
+    text: "ONLINE"
+    size: 9
+    color: 0xFFFFFF
+    base-color: "<white>"
+  count:
+    tile-x: 0
+    tile-y: 0
+    x: 30
+    y: 60
+    text: "<b>%server_online%</b>"
+    size: 32
+    color: 0xFFFFFF
+    base-color: "<white>"
+  max:
+    tile-x: 0
+    tile-y: 0
+    x: 44
+    y: 92
+    text: "/ %server_max%"
+    size: 11
+    color: 0x808080
+    base-color: "<gray>"
