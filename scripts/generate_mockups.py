@@ -298,11 +298,20 @@ def editor_gui():
     img.save(os.path.join(OUT, "05-editor-gui.png"))
 
 if __name__ == "__main__":
-    banner()
-    sample_panel()
-    dialog_mockup()
-    console_banner()
-    editor_gui()
+    # v2.7.0: keep only the banner mockup in the repo. The other 4
+    # mockups (panel sample, dialog editor, console banner, editor GUI)
+    # were useful during development but add ~110 KB to the repo
+    # without being referenced anywhere. Regenerate locally with:
+    #   python3 scripts/generate_mockups.py --all
+    import sys
+    if "--all" in sys.argv:
+        banner()
+        sample_panel()
+        dialog_mockup()
+        console_banner()
+        editor_gui()
+    else:
+        banner()
     print("Mockups generated in", OUT)
     for f in sorted(os.listdir(OUT)):
         size = os.path.getsize(os.path.join(OUT, f))
