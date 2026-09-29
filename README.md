@@ -10,6 +10,12 @@
 
 ---
 
+## 🎨 Content packs
+
+Looking for ready-made panels? Check out the **[HudBoard Content Packs](https://github.com/Kterrali/hudboard-packs)** repo — themed panel packs released monthly (Halloween, Christmas, etc.). Download, drop in `plugins/HudBoard/panels/`, done.
+
+---
+
 ## What is HudBoard?
 
 HudBoard lets you place **per-player info panels** anywhere in your Minecraft world. Each panel is a PNG/GIF/JPG image you supply, with **data points** that resolve to PlaceholderAPI placeholders — so `%player_name%`, `%vault_eco_balance%`, `%server_tps%` all render live for every viewer.
